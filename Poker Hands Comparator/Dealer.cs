@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Poker_Hands_Comparator
@@ -45,12 +46,18 @@ namespace Poker_Hands_Comparator
 
         private bool validateHand(string hand)
         {
-            throw new NotImplementedException();
+            string validHandPattern = @"^([CDHS] *[1-9TJQKA] *){5}$";
+            RegexOptions options = RegexOptions.IgnoreCase;
+
+            Match match = Regex.Match(hand, validHandPattern, options);
+
+            return match.Success;
         }
 
         private string sanitiseHand(string hand)
         {
-            throw new NotImplementedException();
+            string handWithoutSpaces = hand.Replace(" ", string.Empty);
+            return handWithoutSpaces.ToUpper();
         }
     }
 }
