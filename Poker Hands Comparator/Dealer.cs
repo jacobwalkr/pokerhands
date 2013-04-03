@@ -9,7 +9,7 @@ namespace Poker_Hands_Comparator
 {
     class Dealer
     {
-        public string GetValidHandOrDieTrying()
+        public Hand GetValidHandOrDieTrying()
         {
             while (true)
             {
@@ -18,7 +18,9 @@ namespace Poker_Hands_Comparator
                 if (this.validateHand(hand))
                 {
                     this.thankUser();
-                    return this.sanitiseHand(hand);
+                    string sanitisedHand = this.sanitiseHand(hand);
+                    string[] cardArray = this.convertHandToCardArray(sanitisedHand);
+                    return new Hand(cardArray);
                 }
 
                 this.chastiseUser();
@@ -58,6 +60,19 @@ namespace Poker_Hands_Comparator
         {
             string handWithoutSpaces = hand.Replace(" ", string.Empty);
             return handWithoutSpaces.ToUpper();
+        }
+
+        private string[] convertHandToCardArray(string hand)
+        {
+            string[] cardArray = new string[5];
+
+            for (int key = 0; key < 5; key++)
+            {
+                int cursor = key * 2;
+                cardArray[key] = hand.Substring(cursor, 2);
+            }
+
+            return cardArray;
         }
     }
 }
