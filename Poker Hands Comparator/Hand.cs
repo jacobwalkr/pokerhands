@@ -9,9 +9,9 @@ namespace Poker_Hands_Comparator
     {
         private string hand;
 
-        public Hand(string _hand)
+        public Hand(string[] cardArray)
         {
-            this.hand = _hand;
+            
         }
     }
 }
