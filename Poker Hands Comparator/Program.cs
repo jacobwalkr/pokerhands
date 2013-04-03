@@ -11,13 +11,9 @@ namespace Poker_Hands_Comparator
         static void Main(string[] args)
         {
             Dealer dealer = new Dealer();
-            Comparator comparator = new Comparator();
 
-            string firstHandString = dealer.GetValidHandOrDieTrying();
-            string secondHandString = dealer.GetValidHandOrDieTrying();
-
-            Hand firsthand = new Hand(firstHandString);
-            Hand secondHand = new Hand(secondHandString);
+            Hand firstHandString = dealer.GetValidHandOrDieTrying();
+            Hand secondHandString = dealer.GetValidHandOrDieTrying();
 
             // Compare hands
         }
