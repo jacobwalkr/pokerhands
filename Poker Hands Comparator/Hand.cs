@@ -5,13 +5,18 @@ using System.Text;
 
 namespace Poker_Hands_Comparator
 {
-    class Hand
+    class Hand : List<Card>
     {
-        private List<Card> hand;
-
-        public Hand(List<Card> cards)
+        public enum ComparisonOutcome
         {
-            this.hand = cards;
+            Win,
+            Draw,
+            Lose
+        };
+
+        public ComparisonOutcome CompareTo(Hand otherHand)
+        {
+            throw new NotImplementedException();
         }
     }
 }
