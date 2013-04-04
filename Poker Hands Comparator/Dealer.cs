@@ -48,7 +48,7 @@ namespace Poker_Hands_Comparator
 
         private bool validateHand(string hand)
         {
-            string validHandPattern = @"^([CDHS] *[1-9TJQKA] *){5}$";
+            string validHandPattern = @"^([1-9TJQKA] *[CDHS] *){5}$";
             RegexOptions options = RegexOptions.IgnoreCase;
 
             Match match = Regex.Match(hand, validHandPattern, options);
