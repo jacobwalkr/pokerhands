@@ -18,8 +18,7 @@ namespace Poker_Hands_Comparator
                 if (this.validateHand(handString))
                 {
                     this.thankUser();
-                    string sanitisedHand = this.sanitiseHand(hand);
-                    Hand hand = this.convertHandToCardList(sanitisedHand);
+                    return Hand.ConstructFromUnsanitisedValidatedInput(handString);
                 }
 
                 this.chastiseUser();
@@ -53,31 +52,6 @@ namespace Poker_Hands_Comparator
             Match match = Regex.Match(handString, validHandPattern, options);
 
             return match.Success;
-        }
-
-        private string sanitiseHand(string handString)
-        {
-            string handWithoutSpaces = handString.Replace(" ", string.Empty);
-            return handWithoutSpaces.ToUpper();
-        }
-
-        private List<Card> convertHandToCardList(string cleanHandString)
-        {
-            Hand hand = new Hand();
-
-            for (int key = 0; key < 5; key++)
-            {
-                int cursor = key * 2;
-                string cardString = cleanHandString.Substring(cursor, 2);
-
-                char value = cardString.ToCharArray()[0];
-                char suit = cardString.ToCharArray()[1];
-                Card card = new Card(value, suit);
-
-                hand.Add(card);
-            }
-
-            return hand;
         }
     }
 }
