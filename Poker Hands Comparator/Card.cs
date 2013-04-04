@@ -11,7 +11,7 @@ namespace Poker_Hands_Comparator
         private char suit;
         private char value;
 
-        public Card(char _suit, char _value)
+        public Card(char _value, char _suit)
         {
             this.suit = _suit;
             this.value = _value;
