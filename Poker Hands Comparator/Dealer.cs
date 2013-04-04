@@ -13,14 +13,13 @@ namespace Poker_Hands_Comparator
         {
             while (true)
             {
-                string hand = this.promptForHand();
+                string handString = this.promptForHand();
 
-                if (this.validateHand(hand))
+                if (this.validateHand(handString))
                 {
                     this.thankUser();
                     string sanitisedHand = this.sanitiseHand(hand);
-                    List<Card> cardArray = this.convertHandToCardList(sanitisedHand);
-                    return new Hand(cardArray);
+                    Hand hand = this.convertHandToCardList(sanitisedHand);
                 }
 
                 this.chastiseUser();
@@ -46,37 +45,39 @@ namespace Poker_Hands_Comparator
             Console.WriteLine();
         }
 
-        private bool validateHand(string hand)
+        private bool validateHand(string handString)
         {
             string validHandPattern = @"^([1-9TJQKA] *[CDHS] *){5}$";
             RegexOptions options = RegexOptions.IgnoreCase;
 
-            Match match = Regex.Match(hand, validHandPattern, options);
+            Match match = Regex.Match(handString, validHandPattern, options);
 
             return match.Success;
         }
 
-        private string sanitiseHand(string hand)
+        private string sanitiseHand(string handString)
         {
-            string handWithoutSpaces = hand.Replace(" ", string.Empty);
+            string handWithoutSpaces = handString.Replace(" ", string.Empty);
             return handWithoutSpaces.ToUpper();
         }
 
-        private List<Card> convertHandToCardList(string hand)
+        private List<Card> convertHandToCardList(string cleanHandString)
         {
-            List<Card> cardList = new List<Card>(5);
+            Hand hand = new Hand();
 
             for (int key = 0; key < 5; key++)
             {
                 int cursor = key * 2;
-                string cardString = hand.Substring(cursor, 2);
+                string cardString = cleanHandString.Substring(cursor, 2);
 
                 char value = cardString.ToCharArray()[0];
                 char suit = cardString.ToCharArray()[1];
                 Card card = new Card(value, suit);
+
+                hand.Add(card);
             }
 
-            return cardList;
+            return hand;
         }
     }
 }
