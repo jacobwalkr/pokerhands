@@ -12,10 +12,10 @@ namespace Poker_Hands_Comparator
         {
             Dealer dealer = new Dealer();
 
-            Hand firstHandString = dealer.GetValidHandOrDieTrying();
-            Hand secondHandString = dealer.GetValidHandOrDieTrying();
+            Hand firstHand = dealer.GetValidHandOrDieTrying();
+            Hand secondHand = dealer.GetValidHandOrDieTrying();
 
-            // Compare hands
+            firstHand.CompareTo(secondHand);
         }
     }
 }
