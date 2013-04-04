@@ -7,11 +7,11 @@ namespace Poker_Hands_Comparator
 {
     class Hand
     {
-        private string hand;
+        private List<Card> hand;
 
-        public Hand(string[] cardArray)
+        public Hand(List<Card> cards)
         {
-            
+            this.hand = cards;
         }
     }
 }
