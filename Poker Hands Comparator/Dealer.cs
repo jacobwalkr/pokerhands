@@ -19,7 +19,7 @@ namespace Poker_Hands_Comparator
                 {
                     this.thankUser();
                     string sanitisedHand = this.sanitiseHand(hand);
-                    string[] cardArray = this.convertHandToCardArray(sanitisedHand);
+                    List<Card> cardArray = this.convertHandToCardList(sanitisedHand);
                     return new Hand(cardArray);
                 }
 
@@ -62,17 +62,21 @@ namespace Poker_Hands_Comparator
             return handWithoutSpaces.ToUpper();
         }
 
-        private string[] convertHandToCardArray(string hand)
+        private List<Card> convertHandToCardList(string hand)
         {
-            string[] cardArray = new string[5];
+            List<Card> cardList = new List<Card>(5);
 
             for (int key = 0; key < 5; key++)
             {
                 int cursor = key * 2;
-                cardArray[key] = hand.Substring(cursor, 2);
+                string cardString = hand.Substring(cursor, 2);
+
+                char value = cardString.ToCharArray()[0];
+                char suit = cardString.ToCharArray()[1];
+                Card card = new Card(value, suit);
             }
 
-            return cardArray;
+            return cardList;
         }
     }
 }
