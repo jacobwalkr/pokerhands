@@ -13,8 +13,8 @@ namespace Poker_Hands_Comparator
 
         public Card(char _value, char _suit)
         {
-            this.suit = _suit;
             this.value = _value;
+            this.suit = _suit;
         }
     }
 }
