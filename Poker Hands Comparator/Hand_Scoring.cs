@@ -15,6 +15,38 @@ namespace PokerHands
             {
                 return Hand.Rank.StraightFlush;
             }
+            else if (this.IsFourOfAKind())
+            {
+                return Hand.Rank.FourOfAKind;
+            }
+            else if (this.IsFullHouse())
+            {
+                return Hand.Rank.FullHouse;
+            }
+            else if (this.IsFlush())
+            {
+                return Hand.Rank.Flush;
+            }
+            else if (this.IsStraight())
+            {
+                return Hand.Rank.Straight;
+            }
+            else if (this.IsThreeOfAKind())
+            {
+                return Hand.Rank.ThreeOfAKind;
+            }
+            else if (this.IsTwoPairs())
+            {
+                return Hand.Rank.TwoPairs;
+            }
+            else if (this.IsPair())
+            {
+                return Hand.Rank.Pair;
+            }
+            else
+            {
+                return Hand.Rank.Junk;
+            }
         }
 
         private bool IsStraightFlush()
@@ -38,6 +70,41 @@ namespace PokerHands
             }
 
             return true;
+        }
+
+        private bool IsFourOfAKind()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool IsFullHouse()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool IsFlush()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool IsStraight()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool IsThreeOfAKind()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool IsTwoPairs()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool IsPair()
+        {
+            throw new NotImplementedException();
         }
     }
 }
