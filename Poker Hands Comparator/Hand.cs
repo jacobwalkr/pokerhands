@@ -21,25 +21,18 @@ namespace PokerHands
             return second.Value - first.Value;
         }
 
-        public enum ComparisonOutcome
+        public Hand.ComparisonOutcome CompareTo(Hand otherHand)
         {
-            Win,
-            Draw,
-            Lose
-        };
-
-        public ComparisonOutcome CompareTo(Hand otherHand)
-        {
-            HandType thisHandScore = Hand.Score(this);
-            HandType otherHandScore = Hand.Score(otherHand);
+            Hand.Rank thisHandScore = Hand.Score(this);
+            Hand.Rank otherHandScore = Hand.Score(otherHand);
 
             if (thisHandScore < otherHandScore)
             {
-                return ComparisonOutcome.Lose;
+                return Hand.ComparisonOutcome.Lose;
             }
             else if (thisHandScore > otherHandScore)
             {
-                return ComparisonOutcome.Win;
+                return Hand.ComparisonOutcome.Win;
             }
             else // The hands are both of the same type
             {
@@ -50,15 +43,15 @@ namespace PokerHands
 
                     if (thisCard > otherCard)
                     {
-                        return ComparisonOutcome.Win;
+                        return Hand.ComparisonOutcome.Win;
                     }
                     else if (thisCard < otherCard)
                     {
-                        return ComparisonOutcome.Lose;
+                        return Hand.ComparisonOutcome.Lose;
                     }
                 }
 
-                return ComparisonOutcome.Draw;
+                return Hand.ComparisonOutcome.Draw;
             }
         }
 

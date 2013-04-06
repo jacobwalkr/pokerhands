@@ -8,12 +8,12 @@ namespace PokerHands
 {
     partial class Hand
     {
-        public static HandType Score(Hand hand)
+        public static Hand.Rank Score(Hand hand)
         {
             // Cascade through score methods until a match is found
             if (Hand.IsStraightFlush(hand))
             {
-                return HandType.StraightFlush;
+                return Hand.Rank.StraightFlush;
             }
         }
 
