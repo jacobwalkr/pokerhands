@@ -23,8 +23,8 @@ namespace PokerHands
 
         public Hand.ComparisonOutcome CompareTo(Hand otherHand)
         {
-            Hand.Rank thisHandScore = Hand.Score(this);
-            Hand.Rank otherHandScore = Hand.Score(otherHand);
+            Hand.Rank thisHandScore = this.Score();
+            Hand.Rank otherHandScore = otherHand.Score();
 
             if (thisHandScore < otherHandScore)
             {
