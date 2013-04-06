@@ -8,7 +8,7 @@ namespace PokerHands
 {
     partial class Hand
     {
-        public Hand.Rank Score()
+        private Hand.Rank Score()
         {
             // Cascade through score methods until a match is found
             if (this.IsStraightFlush())
