@@ -8,7 +8,7 @@ namespace PokerHands
 {
     partial class Hand
     {
-        public static enum Rank
+        public enum Rank
         {
             Junk = 1,
             Pair = 2,
@@ -21,7 +21,7 @@ namespace PokerHands
             StraightFlush = 9
         }
 
-        public static enum ComparisonOutcome
+        public enum ComparisonOutcome
         {
             Win,
             Draw,
