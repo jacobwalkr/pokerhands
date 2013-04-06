@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Poker_Hands_Comparator
+namespace PokerHands
 {
     class Program
     {

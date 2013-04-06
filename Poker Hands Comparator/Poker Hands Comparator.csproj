@@ -7,7 +7,7 @@
     <ProjectGuid>{46BEAF99-50E6-41F0-AA76-5686C5942EA7}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Poker_Hands_Comparator</RootNamespace>
+    <RootNamespace>PokerHands</RootNamespace>
     <AssemblyName>Poker Hands Comparator</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

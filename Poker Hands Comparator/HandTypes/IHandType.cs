@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Poker_Hands_Comparator.HandTypes
+namespace PokerHands.HandTypes
 {
     interface IHandType
     {

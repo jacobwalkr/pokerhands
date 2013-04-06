@@ -1,4 +1,4 @@
-﻿namespace Poker_Hands_Comparator
+﻿namespace PokerHands
 {
     class Card
     {

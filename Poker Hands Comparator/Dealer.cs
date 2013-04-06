@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace Poker_Hands_Comparator
+namespace PokerHands
 {
     class Dealer
     {

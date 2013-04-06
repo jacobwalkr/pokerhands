@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Poker_Hands_Comparator
+namespace PokerHands
 {
     class Hand : List<Card>
     {
