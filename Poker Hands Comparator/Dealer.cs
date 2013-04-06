@@ -14,7 +14,8 @@ namespace PokerHands
                 if (this.validateHand(handString))
                 {
                     this.thankUser();
-                    return Hand.ConstructFromSanitisedInput(handString);
+                    string sanitisedHandString = this.sanitiseHand(handString);
+                    return Hand.ConstructFromSanitisedInput(sanitisedHandString);
                 }
 
                 this.chastiseUser();
