@@ -13,6 +13,12 @@ namespace PokerHands
             }
 
             this.AddRange(cardList);
+            this.Sort(this.CompareCards);
+        }
+
+        private int CompareCards(Card first, Card second)
+        {
+            return first.Value - second.Value;
         }
 
         public enum ComparisonOutcome
