@@ -8,24 +8,24 @@ namespace PokerHands
 {
     partial class Hand
     {
-        public static Hand.Rank Score(Hand hand)
+        public Hand.Rank Score()
         {
             // Cascade through score methods until a match is found
-            if (Hand.IsStraightFlush(hand))
+            if (this.IsStraightFlush())
             {
                 return Hand.Rank.StraightFlush;
             }
         }
 
-        private static bool IsStraightFlush(Hand hand)
+        private bool IsStraightFlush()
         {
-            int previousValue = hand[0].Value;
-            char previousSuit = hand[0].Suit;
+            int previousValue = this[0].Value;
+            char previousSuit = this[0].Suit;
 
             for (int cardIndex = 1; cardIndex < 5; cardIndex++)
             {
-                int currentValue = hand[cardIndex].Value;
-                char currentSuit = hand[cardIndex].Suit;
+                int currentValue = this[cardIndex].Value;
+                char currentSuit = this[cardIndex].Suit;
 
                 if (((currentValue - previousValue) != 1) || (previousSuit != currentSuit))
                 {
