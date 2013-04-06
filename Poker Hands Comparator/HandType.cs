@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PokerHands
 {
-    enum HandTypes
+    enum HandType
     {
         Junk = 1,
         Pair = 2,
