@@ -30,7 +30,36 @@ namespace PokerHands
 
         public ComparisonOutcome CompareTo(Hand otherHand)
         {
-            throw new NotImplementedException();
+            HandType thisHandScore = Scorer.ScoreHand(this);
+            HandType otherHandScore = Scorer.ScoreHand(otherHand);
+
+            if (thisHandScore < otherHandScore)
+            {
+                return ComparisonOutcome.Lose;
+            }
+            else if (thisHandScore > otherHandScore)
+            {
+                return ComparisonOutcome.Win;
+            }
+            else // The hands are both of the same type
+            {
+                for (int cardIndex = 5; cardIndex > 0; cardIndex++)
+                {
+                    int thisCard = this[cardIndex].Value;
+                    int otherCard = otherHand[cardIndex].Value;
+
+                    if (thisCard > otherCard)
+                    {
+                        return ComparisonOutcome.Win;
+                    }
+                    else if (thisCard < otherCard)
+                    {
+                        return ComparisonOutcome.Lose;
+                    }
+                }
+
+                return ComparisonOutcome.Draw;
+            }
         }
 
         public static Hand ConstructFromSanitisedInput(string validatedHandString)
