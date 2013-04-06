@@ -10,6 +10,6 @@ namespace PokerHands.HandTypes
     {
         public int Score { get; private set; }
         public List<int> OrderedCardValues { get; private set; }
-        public string ToString();
+        public string Name { get; private set; }
     }
 }
