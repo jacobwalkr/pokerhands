@@ -39,7 +39,7 @@ namespace PokerHands
                 char[] cardAsCharArray = cardString.ToCharArray();
 
                 char valueChar = cardAsCharArray[0];
-                byte value = new byte();
+                int value = 0;
 
                 if (char.IsLetter(valueChar))
                 {
@@ -64,7 +64,7 @@ namespace PokerHands
                 }
                 else
                 {
-                    value = byte.Parse(valueChar.ToString());
+                    value = int.Parse(valueChar.ToString());
                 }
 
                 char suit = cardAsCharArray[1];
