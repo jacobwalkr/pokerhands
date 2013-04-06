@@ -15,7 +15,7 @@ namespace PokerHands
         Straight = 5,
         Flush = 6,
         FullHouse = 7,
-        FourOfAKind = 8
-        StraightFlush = 9;
+        FourOfAKind = 8,
+        StraightFlush = 9
     }
 }
