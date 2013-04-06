@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace PokerHands
 {
-    static class Scorer
+    partial class Hand
     {
-        public static HandType ScoreHand(Hand hand)
+        public static HandType Score(Hand hand)
         {
             // Cascade through score methods until a match is found
-            if (Scorer.CheckStraightFlush(hand))
+            if (Hand.IsStraightFlush(hand))
             {
                 return HandType.StraightFlush;
             }
         }
 
-        private static bool CheckStraightFlush(Hand hand)
+        private static bool IsStraightFlush(Hand hand)
         {
             int previousValue = hand[0].Value;
             char previousSuit = hand[0].Suit;

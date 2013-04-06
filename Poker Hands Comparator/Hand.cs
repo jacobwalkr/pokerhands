@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PokerHands
 {
-    class Hand : List<Card>
+    partial class Hand : List<Card>
     {
         public Hand(List<Card> cardList)
         {
@@ -30,8 +30,8 @@ namespace PokerHands
 
         public ComparisonOutcome CompareTo(Hand otherHand)
         {
-            HandType thisHandScore = Scorer.ScoreHand(this);
-            HandType otherHandScore = Scorer.ScoreHand(otherHand);
+            HandType thisHandScore = Hand.Score(this);
+            HandType otherHandScore = Hand.Score(otherHand);
 
             if (thisHandScore < otherHandScore)
             {
