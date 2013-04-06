@@ -54,10 +54,13 @@ namespace PokerHands
             int previousValue = this[0].Value;
             char previousSuit = this[0].Suit;
 
-            for (int cardIndex = 1; cardIndex < 5; cardIndex++)
+            int currentValue = 0;
+            char currentSuit = new char();
+
+            foreach (Card card in this)
             {
-                int currentValue = this[cardIndex].Value;
-                char currentSuit = this[cardIndex].Suit;
+                currentValue = card.Value;
+                currentSuit = card.Suit;
 
                 if (((currentValue - previousValue) != 1) || (previousSuit != currentSuit))
                 {
