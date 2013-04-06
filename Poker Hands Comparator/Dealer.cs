@@ -14,7 +14,7 @@ namespace Poker_Hands_Comparator
                 if (this.validateHand(handString))
                 {
                     this.thankUser();
-                    return Hand.ConstructFromUnsanitisedValidatedInput(handString);
+                    return Hand.ConstructFromSanitisedInput(handString);
                 }
 
                 this.chastiseUser();
@@ -48,6 +48,12 @@ namespace Poker_Hands_Comparator
             Match match = Regex.Match(handString, validHandPattern, options);
 
             return match.Success;
+        }
+
+        private string sanitiseHand(string unsanitisedHand)
+        {
+            string handWithoutSpaces = unsanitisedHand.Replace(" ", string.Empty);
+            return handWithoutSpaces.ToUpper();
         }
     }
 }

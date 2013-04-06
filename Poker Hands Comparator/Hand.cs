@@ -5,6 +5,18 @@ namespace Poker_Hands_Comparator
 {
     class Hand : List<Card>
     {
+        private List<Card> cards;
+
+        public Hand(List<Card> cardList)
+        {
+            if (cardList.Count != 5)
+            {
+                throw new ArgumentException("A hand must consist of 5 cards.");
+            }
+
+            this.cards = cardList;
+        }
+
         public enum ComparisonOutcome
         {
             Win,
@@ -17,26 +29,52 @@ namespace Poker_Hands_Comparator
             throw new NotImplementedException();
         }
 
-        public static Hand ConstructFromUnsanitisedValidatedInput(string validatedHandString)
+        public static Hand ConstructFromSanitisedInput(string validatedHandString)
         {
-            Hand hand = new Hand();
-
-            string handWithoutSpaces = validatedHandString.Replace(" ", string.Empty);
-            string upperHandWithoutSpaces = handWithoutSpaces.ToUpper();
+            List<Card> cardList = new List<Card>();
 
             for (int key = 0; key < 5; key++)
             {
                 int cursor = key * 2;
                 string cardString = validatedHandString.Substring(cursor, 2);
 
-                char value = cardString.ToCharArray()[0];
-                char suit = cardString.ToCharArray()[1];
-                Card card = new Card(value, suit);
+                char[] cardAsCharArray = cardString.ToCharArray();
 
-                hand.Add(card);
+                char valueChar = cardAsCharArray[0];
+                byte value = new byte();
+
+                if (char.IsLetter(valueChar))
+                {
+                    switch (valueChar)
+                    {
+                        case 'T':
+                            value = 10;
+                            break;
+                        case 'J':
+                            value = 11;
+                            break;
+                        case 'Q':
+                            value = 12;
+                            break;
+                        case 'K':
+                            value = 13;
+                            break;
+                        case 'A':
+                            value = 14;
+                            break;
+                    }
+                }
+                else
+                {
+                    value = byte.Parse(valueChar.ToString());
+                }
+
+                char suit = cardAsCharArray[1];
+
+                cardList.Add(new Card(value, suit));
             }
 
-            return hand;
+            return new Hand(cardList);
         }
     }
 }

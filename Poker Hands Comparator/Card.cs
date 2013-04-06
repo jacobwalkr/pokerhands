@@ -1,12 +1,11 @@
-﻿
-namespace Poker_Hands_Comparator
+﻿namespace Poker_Hands_Comparator
 {
     class Card
     {
+        private byte value;
         private char suit;
-        private char value;
 
-        public Card(char _value, char _suit)
+        public Card(byte _value, char _suit)
         {
             this.value = _value;
             this.suit = _suit;
