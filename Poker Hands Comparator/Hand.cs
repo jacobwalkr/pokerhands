@@ -18,7 +18,7 @@ namespace PokerHands
 
         private int compareCards(Card first, Card second)
         {
-            return first.Value - second.Value;
+            return second.Value - first.Value;
         }
 
         public enum ComparisonOutcome
