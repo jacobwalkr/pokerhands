@@ -5,8 +5,6 @@ namespace PokerHands
 {
     class Hand : List<Card>
     {
-        private List<Card> cards;
-
         public Hand(List<Card> cardList)
         {
             if (cardList.Count != 5)
@@ -14,7 +12,7 @@ namespace PokerHands
                 throw new ArgumentException("A hand must consist of 5 cards.");
             }
 
-            this.cards = cardList;
+            this.AddRange(cardList);
         }
 
         public enum ComparisonOutcome
