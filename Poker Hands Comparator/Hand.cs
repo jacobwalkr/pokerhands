@@ -13,10 +13,10 @@ namespace PokerHands
             }
 
             this.AddRange(cardList);
-            this.Sort(this.CompareCards);
+            this.Sort(this.compareCards);
         }
 
-        private int CompareCards(Card first, Card second)
+        private int compareCards(Card first, Card second)
         {
             return first.Value - second.Value;
         }
