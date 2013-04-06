@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Card.cs" />
     <Compile Include="Hand.cs" />
+    <Compile Include="HandTypes\HighCard.cs" />
     <Compile Include="HandTypes\IHandType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
