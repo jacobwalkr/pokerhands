@@ -77,7 +77,26 @@ namespace PokerHands
 
         private bool IsFourOfAKind()
         {
-            throw new NotImplementedException();
+            Dictionary<char, int> suitsPresent = new Dictionary<char, int>(4);
+            suitsPresent.Add('C', 0);
+            suitsPresent.Add('D', 0);
+            suitsPresent.Add('H', 0);
+            suitsPresent.Add('S', 0);
+
+            foreach (Card card in this)
+            {
+                suitsPresent[card.Suit]++;
+            }
+
+            foreach (KeyValuePair<char, int> suit in suitsPresent)
+            {
+                if (suit.Value == 4)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private bool IsFullHouse()
