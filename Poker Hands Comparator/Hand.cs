@@ -36,7 +36,7 @@ namespace PokerHands
             }
             else // The hands are both of the same type
             {
-                for (int cardIndex = 4; cardIndex >= 0; cardIndex++)
+                for (int cardIndex = 4; cardIndex >= 0; cardIndex--)
                 {
                     int thisCard = this[cardIndex].Value;
                     int otherCard = otherHand[cardIndex].Value;
