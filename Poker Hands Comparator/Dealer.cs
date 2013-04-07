@@ -22,6 +22,23 @@ namespace PokerHands
             }
         }
 
+        public bool RetryWithNewHand()
+        {
+            Console.WriteLine("Repeat with a new hand? (y/n)");
+            Console.Write("> ");
+
+            string input = Console.ReadLine();
+
+            if (input.Equals("y") || input.Equals("Y"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private string promptForHand()
         {
             Console.WriteLine("Enter hand");
