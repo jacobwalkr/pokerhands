@@ -53,6 +53,7 @@
     <Compile Include="HandType\StraightFlush.cs" />
     <Compile Include="HandType\ThreeOfAKind.cs" />
     <Compile Include="HandType\TwoPairs.cs" />
+    <Compile Include="Hand_CompareSimilar.cs" />
     <Compile Include="Hand_Scoring.cs" />
     <Compile Include="Hand_Enumerations.cs" />
     <Compile Include="Program.cs" />
