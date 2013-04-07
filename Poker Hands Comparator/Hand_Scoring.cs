@@ -54,22 +54,16 @@ namespace PokerHands
             int previousValue = this[0].Value;
             char previousSuit = this[0].Suit;
 
-            int currentValue = 0;
-            char currentSuit = new char();
-
-            foreach (Card card in this)
+            for (int cardIndex = 1; cardIndex < 5; cardIndex++)
             {
-                currentValue = card.Value;
-                currentSuit = card.Suit;
-
-                if (((currentValue - previousValue) != 1) || (previousSuit != currentSuit))
+                if (((this[cardIndex].Value - previousValue) != 1) || !this[cardIndex].Suit.Equals(previousSuit))
                 {
                     // If the values aren't consecutive or the suits aren't the same
                     return false;
                 }
 
-                previousValue = currentValue;
-                previousSuit = currentSuit;
+                previousValue = this[cardIndex].Value;
+                previousSuit = this[cardIndex].Suit;
             }
 
             return true;
@@ -147,7 +141,20 @@ namespace PokerHands
 
         private bool IsStraight()
         {
-            throw new NotImplementedException();
+            int previousValue = this[0].Value;
+
+            foreach (Card card in this)
+            {
+                if ((card.Value - previousValue) != 1)
+                {
+                    // If the values aren't consecutive
+                    return false;
+                }
+
+                previousValue = card.Value;
+            }
+
+            return true;
         }
 
         private bool IsThreeOfAKind()
