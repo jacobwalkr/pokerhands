@@ -76,7 +76,7 @@ namespace PokerHands
 
         private bool IsFourOfAKind()
         {
-            int[] valueOccurrences = new int[14];
+            int[] valueOccurrences = new int[15];
 
             foreach (Card card in this)
             {
@@ -96,7 +96,7 @@ namespace PokerHands
 
         private bool IsFullHouse()
         {
-            int[] valueOccurrences = new int[14];
+            int[] valueOccurrences = new int[15];
             bool three = false;
             bool two = false;
 
@@ -164,7 +164,7 @@ namespace PokerHands
 
         private bool IsThreeOfAKind()
         {
-            int[] valueOccurrences = new int[14];
+            int[] valueOccurrences = new int[15];
 
             foreach (Card card in this)
             {
@@ -184,7 +184,7 @@ namespace PokerHands
 
         private int CountPairs()
         {
-            int[] valueOccurrences = new int[14];
+            int[] valueOccurrences = new int[15];
 
             foreach (Card card in this)
             {
