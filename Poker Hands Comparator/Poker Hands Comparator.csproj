@@ -43,7 +43,16 @@
   <ItemGroup>
     <Compile Include="Card.cs" />
     <Compile Include="Hand.cs" />
+    <Compile Include="HandType\Flush.cs" />
+    <Compile Include="HandType\FourOfAKind.cs" />
+    <Compile Include="HandType\FullHouse.cs" />
     <Compile Include="HandType\HandType.cs" />
+    <Compile Include="HandType\Junk.cs" />
+    <Compile Include="HandType\Pair.cs" />
+    <Compile Include="HandType\Straight.cs" />
+    <Compile Include="HandType\StraightFlush.cs" />
+    <Compile Include="HandType\ThreeOfAKind.cs" />
+    <Compile Include="HandType\TwoPairs.cs" />
     <Compile Include="Hand_Scoring.cs" />
     <Compile Include="Hand_Enumerations.cs" />
     <Compile Include="Program.cs" />
