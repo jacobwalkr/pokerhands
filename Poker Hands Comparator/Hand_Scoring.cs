@@ -77,20 +77,16 @@ namespace PokerHands
 
         private bool IsFourOfAKind()
         {
-            Dictionary<char, int> suitsPresent = new Dictionary<char, int>(4);
-            suitsPresent.Add('C', 0);
-            suitsPresent.Add('D', 0);
-            suitsPresent.Add('H', 0);
-            suitsPresent.Add('S', 0);
+            int[] valuesPresent = new int[14];
 
             foreach (Card card in this)
             {
-                suitsPresent[card.Suit]++;
+                valuesPresent[card.Value]++;
             }
 
-            foreach (KeyValuePair<char, int> suit in suitsPresent)
+            foreach (int value in valuesPresent)
             {
-                if (suit.Value == 4)
+                if (value == 4)
                 {
                     return true;
                 }
