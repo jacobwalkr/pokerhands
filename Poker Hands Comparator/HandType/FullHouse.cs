@@ -5,10 +5,11 @@ namespace PokerHands.HandType
     class FullHouse : HandType
     {
         new public readonly int Rank = 7;
+        public int ScoringValue;
 
-        public override Hand.ComparisonOutcome CompareToSimilar(Hand hand)
+        public FullHouse(int _scoringValue)
         {
-            throw new NotImplementedException();
+            this.ScoringValue = _scoringValue;
         }
     }
 }

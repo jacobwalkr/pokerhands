@@ -5,10 +5,11 @@ namespace PokerHands.HandType
     class ThreeOfAKind : HandType
     {
         new public readonly int Rank = 4;
+        public int ScoringValue { get; private set; }
 
-        public override Hand.ComparisonOutcome CompareToSimilar(Hand hand)
+        public ThreeOfAKind(int _scoringValue)
         {
-            throw new NotImplementedException();
+            this.ScoringValue = _scoringValue;
         }
     }
 }
