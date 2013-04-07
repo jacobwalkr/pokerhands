@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Card.cs" />
     <Compile Include="Hand.cs" />
-    <Compile Include="HandType\IHandType.cs" />
+    <Compile Include="HandType\HandType.cs" />
     <Compile Include="Hand_Scoring.cs" />
     <Compile Include="Hand_Enumerations.cs" />
     <Compile Include="Program.cs" />

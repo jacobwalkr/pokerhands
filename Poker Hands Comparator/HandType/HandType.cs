@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PokerHands.HandType
 {
-    interface IHandType
+    abstract class HandType
     {
-        int Rank { get; }
-        public Hand.ComparisonOutcome CompareToSimilar(Hand hand);
+        public const int Rank = 0;
+        abstract public Hand.ComparisonOutcome CompareToSimilar(Hand hand);
     }
 }
