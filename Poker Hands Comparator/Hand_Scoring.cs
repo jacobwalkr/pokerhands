@@ -35,17 +35,22 @@ namespace PokerHands
             {
                 return Hand.Rank.ThreeOfAKind;
             }
-            else if (this.IsTwoPairs())
-            {
-                return Hand.Rank.TwoPairs;
-            }
-            else if (this.IsPair())
-            {
-                return Hand.Rank.Pair;
-            }
             else
             {
-                return Hand.Rank.Junk;
+                int numPairs = this.CountPairs();
+
+                if (numPairs == 2)
+                {
+                    return Hand.Rank.TwoPairs;
+                }
+                else if (numPairs == 1)
+                {
+                    return Hand.Rank.Pair;
+                }
+                else
+                {
+                    return Hand.Rank.Junk;
+                }
             }
         }
 
@@ -159,17 +164,44 @@ namespace PokerHands
 
         private bool IsThreeOfAKind()
         {
-            throw new NotImplementedException();
+            int[] valueOccurrences = new int[14];
+
+            foreach (Card card in this)
+            {
+                valueOccurrences[card.Value]++;
+            }
+
+            foreach (int occurrences in valueOccurrences)
+            {
+                if (occurrences == 3)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
-        private bool IsTwoPairs()
+        private int CountPairs()
         {
-            throw new NotImplementedException();
-        }
+            int[] valueOccurrences = new int[14];
 
-        private bool IsPair()
-        {
-            throw new NotImplementedException();
+            foreach (Card card in this)
+            {
+                valueOccurrences[card.Value]++;
+            }
+
+            int numPairs = 0;
+
+            foreach (int occurrences in valueOccurrences)
+            {
+                if (occurrences == 2)
+                {
+                    numPairs++;
+                }
+            }
+
+            return numPairs;
         }
     }
 }
