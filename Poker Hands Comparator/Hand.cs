@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using PokerHands.HandType;
 
 namespace PokerHands
 {
     partial class Hand : List<Card>
     {
+        public HandType Type { get; private set; }
+
         public Hand(List<Card> cardList)
         {
             if (cardList.Count != 5)
@@ -14,6 +17,7 @@ namespace PokerHands
 
             this.AddRange(cardList);
             this.Sort(this.compareCards);
+            this.Type = this.Score();
         }
 
         private int compareCards(Card first, Card second)
@@ -23,35 +27,17 @@ namespace PokerHands
 
         public Hand.ComparisonOutcome CompareTo(Hand otherHand)
         {
-            Hand.Rank thisHandScore = this.Score();
-            Hand.Rank otherHandScore = otherHand.Score();
-
-            if (thisHandScore < otherHandScore)
+            if (this.Type.Rank < otherHand.Type.Rank)
             {
                 return Hand.ComparisonOutcome.Lose;
             }
-            else if (thisHandScore > otherHandScore)
+            else if (this.Type.Rank > otherHand.Type.Rank)
             {
                 return Hand.ComparisonOutcome.Win;
             }
             else // The hands are both of the same type
             {
-                for (int cardIndex = 4; cardIndex >= 0; cardIndex--)
-                {
-                    int thisCard = this[cardIndex].Value;
-                    int otherCard = otherHand[cardIndex].Value;
-
-                    if (thisCard > otherCard)
-                    {
-                        return Hand.ComparisonOutcome.Win;
-                    }
-                    else if (thisCard < otherCard)
-                    {
-                        return Hand.ComparisonOutcome.Lose;
-                    }
-                }
-
-                return Hand.ComparisonOutcome.Draw;
+                //return thisHandScore.CompareToSimilar(otherHandScore);
             }
         }
 
