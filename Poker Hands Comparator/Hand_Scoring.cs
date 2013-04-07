@@ -77,16 +77,16 @@ namespace PokerHands
 
         private bool IsFourOfAKind()
         {
-            int[] valuesPresent = new int[14];
+            int[] valueOccurrences = new int[14];
 
             foreach (Card card in this)
             {
-                valuesPresent[card.Value]++;
+                valueOccurrences[card.Value]++;
             }
 
-            foreach (int value in valuesPresent)
+            foreach (int occurrences in valueOccurrences)
             {
-                if (value == 4)
+                if (occurrences == 4)
                 {
                     return true;
                 }
