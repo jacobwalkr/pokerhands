@@ -128,7 +128,21 @@ namespace PokerHands
 
         private bool IsFlush()
         {
-            throw new NotImplementedException();
+            char previousSuit = this[0].Suit;
+
+            for (int cardIndex = 1; cardIndex < 5; cardIndex++)
+            {
+                if (this[cardIndex].Suit != previousSuit)
+                {
+                    return false;
+                }
+                else
+                {
+                    previousSuit = this[cardIndex].Suit;
+                }
+            }
+
+            return true;
         }
 
         private bool IsStraight()
