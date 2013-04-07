@@ -97,7 +97,33 @@ namespace PokerHands
 
         private bool IsFullHouse()
         {
-            throw new NotImplementedException();
+            int[] valueOccurrences = new int[14];
+            bool three = false;
+            bool two = false;
+
+            foreach (Card card in this)
+            {
+                valueOccurrences[card.Value]++;
+            }
+
+            foreach (int occurrences in valueOccurrences)
+            {
+                if (occurrences == 2)
+                {
+                    two = true;
+                }
+                else if (occurrences == 3)
+                {
+                    three = true;
+                }
+            }
+
+            if (three && two)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private bool IsFlush()
