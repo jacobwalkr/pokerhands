@@ -1,17 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PokerHands.HandType
 {
     class TwoPairs : HandType
     {
         new public readonly int Rank = 3;
-        public int FirstScoringValue { get; private set; }
-        public int SecondScoringValue { get; private set;}
+        public readonly List<int> ScoringValues;
 
-        public TwoPairs(int _firstScoringValue, int _secondScoringValue)
+        public TwoPairs(List<int> _scoringValues)
         {
-            this.FirstScoringValue = _firstScoringValue;
-            this.SecondScoringValue = _secondScoringValue;
+            if (_scoringValues.Count != 3)
+            {
+                throw new ArgumentException("This hand type requires exactly 3 scoring values");
+            }
+            else
+            {
+                this.ScoringValues = _scoringValues;
+            }
         }
     }
 }

@@ -1,15 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PokerHands.HandType
 {
     class Pair : HandType
     {
         new public readonly int Rank = 2;
-        public int ScoringValue { get; private set; }
+        public readonly List<int> ScoringValues;
 
-        public Pair(int _scoringValue)
+        public Pair(List<int> _scoringValues)
         {
-            this.ScoringValue = _scoringValue;
+            if (_scoringValues.Count != 4)
+            {
+                throw new ArgumentException("This hand type requires exactly 4 scoring values");
+            }
+            else
+            {
+                this.ScoringValues = _scoringValues;
+            }
         }
     }
 }

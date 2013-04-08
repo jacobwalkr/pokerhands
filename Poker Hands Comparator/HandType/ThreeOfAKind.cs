@@ -1,15 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PokerHands.HandType
 {
     class ThreeOfAKind : HandType
     {
         new public readonly int Rank = 4;
-        public int ScoringValue { get; private set; }
+        public readonly List<int> ScoringValues;
 
         public ThreeOfAKind(int _scoringValue)
         {
-            this.ScoringValue = _scoringValue;
+            this.ScoringValues = new List<int>(1);
+            this.ScoringValues.Add(_scoringValue);
         }
     }
 }
