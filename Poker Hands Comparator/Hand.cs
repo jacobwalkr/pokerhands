@@ -6,7 +6,7 @@ namespace PokerHands
 {
     partial class Hand : List<Card>
     {
-        public HandType Type { get; private set; }
+        public HandType.HandType Type { get; private set; }
 
         public Hand(List<Card> cardList)
         {
@@ -37,6 +37,8 @@ namespace PokerHands
             }
             else // The hands are both of the same type
             {
+                Console.Write("Both hands are the same type");
+                return Hand.ComparisonOutcome.Draw;
                 //return thisHandScore.CompareToSimilar(otherHandScore);
             }
         }
