@@ -3,37 +3,56 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PokerHands.HandType;
 
 namespace PokerHands
 {
     partial class Hand
     {
-        private Hand.Rank Score()
+        private HandType.HandType Score()
         {
             // Cascade through score methods until a match is found
             if (this.IsStraightFlush())
             {
-                return Hand.Rank.StraightFlush;
+                return new HandType.StraightFlush(this[0].Value);
             }
             else if (this.IsFourOfAKind())
             {
-                return Hand.Rank.FourOfAKind;
+                // Cards in the hand are sorted, so if the hand is four of a kind it must look like this:
+                // ABBBB or AAAAB
+                // Therefore the second, third and fourth cards will always be part of the group of four.
+
+                return new HandType.FourOfAKind(this[1].Value);
             }
             else if (this.IsFullHouse())
             {
-                return Hand.Rank.FullHouse;
+                // By the same logic as above, a full house must look like this:
+                // AABBB or AAABB
+                // Therefore the third card will always be part of the group of three.
+
+                return new HandType.FullHouse(this[2].Value);
+
+                // These two (four of a kind and full house) could probably be merged. I'll leave it for
+                // now with a view to optimising and tidying up later.
             }
             else if (this.IsFlush())
             {
-                return Hand.Rank.Flush;
+                List<int> scoringValues = new List<int>(5);
+
+                foreach (Card card in this)
+                {
+                    scoringValues.Add(card.Value);
+                }
+
+                return new HandType.Flush(scoringValues);
             }
             else if (this.IsStraight())
             {
-                return Hand.Rank.Straight;
+                return new HandType.Straight(this[0].Value);
             }
             else if (this.IsThreeOfAKind())
             {
-                return Hand.Rank.ThreeOfAKind;
+                return new HandType.ThreeOfAKind(this[0].Value);
             }
             else
             {
@@ -41,15 +60,22 @@ namespace PokerHands
 
                 if (numPairs == 2)
                 {
-                    return Hand.Rank.TwoPairs;
+                    
                 }
                 else if (numPairs == 1)
                 {
-                    return Hand.Rank.Pair;
+                    
                 }
                 else
                 {
-                    return Hand.Rank.Junk;
+                    List<int> scoringValues = new List<int>(5);
+
+                    foreach (Card card in this)
+                    {
+                        scoringValues.Add(card.Value);
+                    }
+
+                    return new HandType.Junk(scoringValues);
                 }
             }
         }
